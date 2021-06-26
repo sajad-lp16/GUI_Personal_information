@@ -20,6 +20,7 @@ def iterate_list(data):
 def view_data():
     clear()
     users = back.view()
+    print(users)
     iterate_list(users)
 
 

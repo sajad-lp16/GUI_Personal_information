@@ -22,8 +22,8 @@ def connect():
 def create(name='', last='', code='', address='', phone='', birth=''):
     if search(code=code):
         return 404
-    conn = sqlite3.connect('data.db')
-    cursor = conn.cursor()
+    conn    = sqlite3.connect('data.db')
+    cursor  = conn.cursor()
     command = """
         insert into user values (NULL,?,?,?,?,?,?)
         """
@@ -33,8 +33,8 @@ def create(name='', last='', code='', address='', phone='', birth=''):
 
 
 def search(name='', last='', code='', address='', phone='', birth=''):
-    conn = sqlite3.connect('data.db')
-    cursor = conn.cursor()
+    conn    = sqlite3.connect('data.db')
+    cursor  = conn.cursor()
     command = """
     SELECT * FROM user WHERE name=? OR last=? OR code=? OR address=? OR phone=?
     OR birth=?
@@ -46,8 +46,8 @@ def search(name='', last='', code='', address='', phone='', birth=''):
 
 
 def view():
-    conn = sqlite3.connect('data.db')
-    cursor = conn.cursor()
+    conn    = sqlite3.connect('data.db')
+    cursor  = conn.cursor()
     command = """
               select * from user
               """
@@ -58,8 +58,8 @@ def view():
 
 
 def update(id, name, last, code, address, phone, birth):
-    conn = sqlite3.connect('data.db')
-    cursor = conn.cursor()
+    conn    = sqlite3.connect('data.db')
+    cursor  = conn.cursor()
     command = """
             update user set name=?, last=?, code=?, address=?, phone=?, birth=?
             where id=?
@@ -70,8 +70,8 @@ def update(id, name, last, code, address, phone, birth):
 
 
 def delete(id):
-    conn = sqlite3.connect('data.db')
-    cursor = conn.cursor()
+    conn    = sqlite3.connect('data.db')
+    cursor  = conn.cursor()
     command = """
                 delete from user where id=?
                 """
